@@ -56,7 +56,7 @@ if node['os'] == 'linux'
     cwd '/home/robin/.vim/bundle/YouCompleteMe/'
     code <<-EOH
       git submodule update --init --recursive
-      ./install.py --clang-compiler
+      ./install.py
     EOH
   end
 end
