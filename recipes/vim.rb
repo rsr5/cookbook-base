@@ -60,5 +60,9 @@ if node['os'] == 'linux'
       ./install.py
     EOH
     user 'robin'
+    creates home(
+      'robin',
+      '.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so'
+    )
   end
 end
