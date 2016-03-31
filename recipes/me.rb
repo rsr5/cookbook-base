@@ -27,6 +27,7 @@ begin
 rescue
   uid = (1000..1001).find { |cuid| !used?(cuid) }
 end
+Chef::Log.error("Using UID #{uid}")
 
 user 'robin' do
   uid uid
