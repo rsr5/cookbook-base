@@ -15,7 +15,7 @@ multipackage %w(zsh
 # Find the lowest free UID for Robin, preferably 1000 will be chosen but in
 # vagrant boxes often add the vagrant user there.
 def used?(uid)
-  ETC.gtpwuid(uid + x)
+  ETC.gtpwuid(uid)
   false
 rescue
   true
@@ -25,7 +25,7 @@ begin
   passwd = Etc.getpwnam('robin')
   uid = passwd.uid
 rescue
-  uid = (1000..1001).find { |cuid| used?(cuid) }
+  uid = (1000..1001).find { |cuid| !used?(cuid) }
 end
 
 user 'robin' do
