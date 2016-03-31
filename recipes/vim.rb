@@ -59,5 +59,6 @@ if node['os'] == 'linux'
       git submodule update --init --recursive
       ./install.py
     EOH
+    user 'robin'
   end
 end
