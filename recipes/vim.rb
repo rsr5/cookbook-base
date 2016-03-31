@@ -50,6 +50,7 @@ if node['os'] == 'linux'
     gcc-c++
     kernel-devel
     cmake
+    python-devel
   )
 
   bash 'install YouCompleteMe' do
