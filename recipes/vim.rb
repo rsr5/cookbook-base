@@ -1,9 +1,5 @@
 
-multipackage %w(vim
-                the_silver_searcher
-                redhat-rpm-config
-                ShellCheck
-                git)
+multipackage %w(vim git)
 
 python_package 'flake8'
 
@@ -51,6 +47,9 @@ if node['os'] == 'linux'
     kernel-devel
     cmake
     python-devel
+    the_silver_searcher
+    redhat-rpm-config
+    ShellCheck
   )
 
   bash 'install YouCompleteMe' do
