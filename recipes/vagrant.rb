@@ -1,5 +1,5 @@
 
-include_recipe 'base::hack_dnf'
+include_recipe 'base::hack_dnf' if node['os'] == 'linux'
 
 multipackage 'which'
 
