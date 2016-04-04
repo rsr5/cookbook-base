@@ -36,6 +36,9 @@ user 'robin' do
   shell '/usr/bin/zsh'
 end
 
+group 'docker'
+group 'robin'
+
 directory home('robin', '.ssh') do
   owner 'robin'
   group 'robin'
