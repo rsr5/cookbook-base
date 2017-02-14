@@ -39,7 +39,7 @@ exec chef exec rubocop "$@"
   CONT
 end
 
-if node['os'] == 'linux'
+if node['platform'] == 'fedora'
   multipackage %w(
     automake
     gcc
