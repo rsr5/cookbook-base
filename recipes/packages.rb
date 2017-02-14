@@ -13,13 +13,14 @@ if node['os'] == 'linux'
     )
   end
 
-  bash 'install compilers' do
-    code <<-EOH
-      sudo dnf -y groupinstall 'C Development Tools and Libraries'
-      EOH
-    not_if 'rpm -qa | grep gcc-c++'
-  end
-
+  if node['platform'] == 'fedora'
+    bash 'install compilers' do
+      code <<-EOH
+        sudo dnf -y groupinstall 'C Development Tools and Libraries'
+        EOH
+      not_if 'rpm -qa | grep gcc-c++'
+    end
+  
   package 'chefdk' do
     source "#{Chef::Config['file_cache_path']}/chefdk.rpm"
     action :nothing
@@ -31,5 +32,6 @@ if node['os'] == 'linux'
     mode '0644'
     action :create
     notifies :upgrade, 'package[chefdk]', :immediately
+  end
   end
 end
