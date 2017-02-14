@@ -1,7 +1,9 @@
 
 include_recipe 'base::hack_dnf' if node['os'] == 'linux'
 
-multipackage 'which'
+if node['platform']
+  multipackage 'which'
+end
 
 node.default['authorization']['sudo']['users'] = %w(vagrant)
 node.default['authorization']['sudo']['passwordless'] = true
