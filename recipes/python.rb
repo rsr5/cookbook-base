@@ -1,4 +1,5 @@
 
+package 'python-pip'
 
 python_runtime '2'
 
